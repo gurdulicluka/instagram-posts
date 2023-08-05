@@ -1,0 +1,210 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* Set a consistent baseline for typography */
+body {
+  line-height: 1;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-color: #171717;
+  display: grid;
+  place-items: center;
+  font-weight: 300;
+}
+
+/* Remove list styles (bullets/numbers) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove hyperlink styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default input styles */
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Remove default button styling */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Reset media elements to prevent unwanted default controls */
+video,
+audio {
+  display: inline-block;
+}
+
+.container {
+  width: min(100%, 800px);
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.card {
+  padding: 28px 35px;
+  display: flex;
+  flex-direction: column;
+  width: 471px;
+  height: 294px;
+  margin-top: 100px;
+  background-image: linear-gradient(to top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
+  border-radius: 16px;
+}
+.card .mastercard {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: flex-end;
+}
+.card .mastercard .ellipse {
+  border: 5px solid white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+.card .mastercard .ellipse:nth-child(1) {
+  background-color: white;
+  transform: translateX(14px);
+}
+.card .emv__chip {
+  width: 70px;
+  height: auto;
+}
+.card__info {
+  flex: 1;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.card__info .row-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__info .row-one .number {
+  color: white;
+  font-size: 1.7rem;
+}
+.card__info .row-one .number span:not(:first-child) {
+  margin-left: 16px;
+}
+.card__info .row-one img {
+  width: 50px;
+  height: 50px;
+}
+.card__info .row-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+  font-size: 1.4rem;
+  margin-top: auto;
+}
+.card__info .row-two .expiry__date {
+  text-align: end;
+}
+.card__info .row-two .expiry__date div:nth-child(1) {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}/*# sourceMappingURL=style.css.map */

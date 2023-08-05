@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+
+
+    <title>GSAP</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="container__boxes">
+            <img class="boxPink" src="./assets/boxPink.png" alt="">
+            <img class="boxYellow" src="./assets/boxYellow.png" alt="">
+            <img class="boxBlue" src="./assets/boxBlue.png" alt="">
+        </div>
+        <div class="container__fruits">
+            <img class="badem" src="./assets/320-fruit-17.webp" alt="">
+            <img class="borovnica" src="./assets/320-fruit-20.webp" alt="">
+            <img class="jagoda" src="./assets/320-fruit-19.webp" alt="">
+            <img class="banana" src="./assets/320-fruit-23.webp" alt="">
+            <img class="kupina" src="./assets/320-fruit-04.webp" alt="">
+            <img class="choco" src="./assets/320-fruit-24.webp" alt="">
+            <img class="cashew" src="./assets/320-fruit-18.webp" alt="">
+            <img class="borovnica2" src="./assets/320-fruit-21.webp" alt="">
+            <img class="orah" src="./assets/320-fruit-01.webp" alt="">
+            <img class="zobene" src="./assets/320-fruit-26.webp" alt="">
+            <img class="zobene2" src="./assets/320-fruit-27.webp" alt="">
+        </div>
+    </main>
+</body>
+
+<script>
+    let tl = gsap.timeline({
+        paused: true,
+    })
+
+    gsap.to(tl, { time: tl.duration(), ease: "power1.out" });
+
+    tl.add("atOnce", "<")
+        .to('.boxYellow', {
+            opacity: '1',
+            scale: '1',
+            rotate: '-10',
+            y: '-40',
+            x: '-10',
+            duration: 0.35,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.boxBlue', {
+            opacity: '1',
+            scale: '1',
+            rotate: '-20',
+            y: '-60',
+            x: '-35',
+            duration: 0.35,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.badem', {
+            scale: '1',
+            rotate: '35',
+            y: '-180',
+            x: '150',
+            duration: 1,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.borovnica', {
+            scale: '1',
+            rotate: '20',
+            y: '-140',
+            x: '-220',
+            duration: 1,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.jagoda', {
+            scale: '1',
+            rotate: '60',
+            y: '-90',
+            x: '230',
+            duration: 1,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.banana', {
+            scale: '1',
+            y: '90',
+            x: '-180',
+            duration: 1,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.kupina', {
+            scale: '1',
+            rotate: '-80',
+            y: '40',
+            x: '-190',
+            duration: 1,
+            ease: "expo.out"
+        }, 'atOnce')
+        .to('.choco', {
+            scale: '1',
+            y: '60',
+            x: '-120',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+        .to('.cashew', {
+            scale: '1',
+            y: '100',
+            x: '-270',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+        .to('.borovnica2', {
+            scale: '1',
+            y: '80',
+            x: '200',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+        .to('.orah', {
+            scale: '1',
+            y: '-80',
+            x: '120',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+        .to('.zobene', {
+            scale: '1',
+            y: '100',
+            x: '120',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+        .to('.zobene2', {
+            scale: '1',
+            y: '-120',
+            x: '-180',
+            duration: 1,
+            ease: "expo.out",
+        }, 'atOnce')
+
+
+
+
+    const pinkBox = document.querySelector('.boxPink')
+    pinkBox.addEventListener('mouseenter', () => {
+        tl.play()
+    })
+    pinkBox.addEventListener('mouseleave', () => {
+        tl.reverse()
+        gsap.to(tl, { time: 0, ease: "expo.out", duration: 0.2, overwrite: true });
+    })
+
+
+// const lenis = new Lenis()
+
+// lenis.on('scroll', (e) => {
+// console.log(e)
+// })
+
+// function raf(time) {
+// lenis.raf(time)
+// requestAnimationFrame(raf)
+// }
+</script>
+
+</html>

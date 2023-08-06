@@ -150,18 +150,46 @@ audio {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
 }
 
-.card {
+.card__wrapper {
+  width: 471px;
+  height: 294px;
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  background-image: gradients.$warmGlow;
+  border-radius: 16px;
+}
+
+// Hover
+// .card__inner {
+//   transform: rotateY(180deg);
+// }
+.card__wrapper:hover .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card__front {
   padding: 28px 35px;
   display: flex;
   flex-direction: column;
-  width: 471px;
-  height: 294px;
-  margin-top: 100px;
-  background-image: gradients.$pandora;
-  border-radius: 16px;
 
   .mastercard {
     display: flex;
@@ -185,7 +213,7 @@ audio {
     height: auto;
   }
 
-  &__info {
+  &--info {
     flex: 1;
     margin-top: 30px;
     display: flex;
@@ -225,6 +253,76 @@ audio {
           font-size: 0.8rem;
           margin-bottom: 5px;
         }
+      }
+    }
+  }
+}
+
+.card__back {
+  color: white;
+  transform: rotateY(180deg);
+  padding: 15px 20px;
+  font-style: italic;
+  font-size: 0.7rem;
+
+  .black-stripe {
+    height: 65px;
+    background-color: black;
+    margin: 12px -20px 16px -20px;
+  }
+
+  .white__stripe {
+    display: flex;
+    height: 48px;
+    background-color: white;
+
+    &--signature {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .stripe {
+        height: 1px;
+        background-color: #5897d2;
+        opacity: 60%;
+      }
+    }
+
+    &--cvv {
+      color: black;
+      display: grid;
+      place-items: center;
+      padding-inline: 16px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+
+  .authorised {
+    margin-top: 7px;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    &__disclaimer {
+      flex: 1;
+
+      &--disclaimer {
+        margin-bottom: 10px;
+      }
+    }
+
+    .holo-sticker {
+      width: 108px;
+      height: auto;
+
+      img {
+        width: 100%;
       }
     }
   }

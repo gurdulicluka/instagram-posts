@@ -143,6 +143,52 @@ audio {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+@mixin gradientBase {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: 0;
+  display: none;
+  animation: clipPathHover 0.4s ease forwards;
+}
+
+.color {
+  @include gradientBase();
+}
+
+.gradient1 {
+  background-image: gradients.$gotham;
+}
+.gradient2 {
+  background-image: gradients.$safari;
+}
+.gradient3 {
+  background-image: gradients.$pandora;
+}
+.gradient4 {
+  background-image: gradients.$warmGlow;
+}
+.gradient5 {
+  background-image: gradients.$beachside;
+}
 
 .container {
   width: min(100%, 800px);
@@ -163,16 +209,13 @@ audio {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  background-image: gradients.$warmGlow;
   border-radius: 16px;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  background-color: mediumseagreen;
 }
 
 // Hover
-// .card__inner {
-//   transform: rotateY(180deg);
-// }
 .card__wrapper:hover .card__inner {
   transform: rotateY(180deg);
 }
@@ -317,13 +360,70 @@ audio {
       }
     }
 
-    .holo-sticker {
-      width: 108px;
-      height: auto;
-
-      img {
-        width: 100%;
-      }
+    .holo-sticker img {
+      width: 110px;
+      height: 58px;
     }
   }
+}
+
+.colorpick {
+  width: 240px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  #gradient1 + label {
+    background-image: gradients.$gotham;
+  }
+  #gradient2 + label {
+    background-image: gradients.$safari;
+  }
+  #gradient3 + label {
+    background-image: gradients.$pandora;
+  }
+  #gradient4 + label {
+    background-image: gradients.$warmGlow;
+  }
+  #gradient5 + label {
+    background-image: gradients.$beachside;
+  }
+
+  .custom-radio {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #334155;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]:checked + .custom-radio {
+    transform: translateY(-14px) scale(1.4);
+    border-color: #e2e8f0;
+  }
+
+  .custom-radio:hover {
+    border-color: #94a3b8;
+  }
+}
+
+@keyframes clipPathHover {
+  from {
+    clip-path: ellipse(20% 0% at 50% 100%);
+  }
+  to {
+    clip-path: ellipse(70% 55% at 50% 100%);
+  }
+}
+
+// toggle
+
+.disable-mouse {
+  pointer-events: none;
 }

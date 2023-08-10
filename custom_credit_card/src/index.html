@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -14,6 +14,13 @@
         <!-- CARD -->
         <div class="card__wrapper">
             <div class="card__inner">
+                <!-- GRADIENTS -->
+                <div class="color gradient1"></div>
+                <div class="color gradient2"></div>
+                <div class="color gradient3"></div>
+                <div class="color gradient4"></div>
+                <div class="color gradient5"></div>
+                <!-- GRADIENTS -->
                 <!-- FRONT -->
                 <div class="card__front">
                     <div class="mastercard">
@@ -40,6 +47,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- FRONT -->
                 <!-- BACK -->
                 <div class="card__back">
                     <p>
@@ -78,9 +86,30 @@
                         </div>
                     </div>
                 </div>
+                <!-- BACK -->
             </div>
         </div>
         <!-- CARD -->
+
+        <!-- COLOR PICKER -->
+        <fieldset class="colorpick">
+            <input id="gradient1" type="radio" name="colorGroup">
+            <label for="gradient1" class="custom-radio">
+            </label>
+            <input id="gradient2" type="radio" name="colorGroup">
+            <label for="gradient2" class="custom-radio">
+            </label>
+            <input id="gradient3" type="radio" name="colorGroup">
+            <label for="gradient3" class="custom-radio">
+            </label>
+            <input id="gradient4" type="radio" name="colorGroup">
+            <label for="gradient4" class="custom-radio">
+            </label>
+            <input id="gradient5" type="radio" name="colorGroup">
+            <label for="gradient5" class="custom-radio">
+            </label>
+        </fieldset>
+        <!-- COLOR PICKER -->
     </main>
 </body>
 

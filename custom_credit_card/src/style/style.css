@@ -132,6 +132,37 @@ audio {
   display: inline-block;
 }
 
+.color {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: 0;
+  display: none;
+  animation: clipPathHover 0.4s ease forwards;
+}
+
+.gradient1 {
+  background-image: linear-gradient(to right top, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+}
+
+.gradient2 {
+  background-image: linear-gradient(to right top, rgb(234, 179, 8), rgb(168, 85, 247), rgb(59, 130, 246));
+}
+
+.gradient3 {
+  background-image: linear-gradient(to top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
+}
+
+.gradient4 {
+  background-image: linear-gradient(to bottom left, rgb(209, 213, 219), rgb(192, 38, 211), rgb(234, 88, 12));
+}
+
+.gradient5 {
+  background-image: linear-gradient(to right top, rgb(153, 27, 27), rgb(202, 138, 4), rgb(234, 179, 8));
+}
+
 .container {
   width: min(100%, 800px);
   height: 70vh;
@@ -151,10 +182,10 @@ audio {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  background-image: linear-gradient(to bottom left, rgb(209, 213, 219), rgb(192, 38, 211), rgb(234, 88, 12));
   border-radius: 16px;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  background-color: mediumseagreen;
 }
 
 .card__wrapper:hover .card__inner {
@@ -283,10 +314,62 @@ audio {
 .card__back .info__disclaimer--disclaimer {
   margin-bottom: 10px;
 }
-.card__back .info .holo-sticker {
-  width: 108px;
-  height: auto;
-}
 .card__back .info .holo-sticker img {
-  width: 100%;
+  width: 110px;
+  height: 58px;
+}
+
+.colorpick {
+  width: 240px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.colorpick #gradient1 + label {
+  background-image: linear-gradient(to right top, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+}
+.colorpick #gradient2 + label {
+  background-image: linear-gradient(to right top, rgb(234, 179, 8), rgb(168, 85, 247), rgb(59, 130, 246));
+}
+.colorpick #gradient3 + label {
+  background-image: linear-gradient(to top, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
+}
+.colorpick #gradient4 + label {
+  background-image: linear-gradient(to bottom left, rgb(209, 213, 219), rgb(192, 38, 211), rgb(234, 88, 12));
+}
+.colorpick #gradient5 + label {
+  background-image: linear-gradient(to right top, rgb(153, 27, 27), rgb(202, 138, 4), rgb(234, 179, 8));
+}
+.colorpick .custom-radio {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #334155;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.colorpick input[type=radio] {
+  display: none;
+}
+.colorpick input[type=radio]:checked + .custom-radio {
+  transform: translateY(-14px) scale(1.4);
+  border-color: #e2e8f0;
+}
+.colorpick .custom-radio:hover {
+  border-color: #94a3b8;
+}
+
+@keyframes clipPathHover {
+  from {
+    -webkit-clip-path: ellipse(20% 0% at 50% 100%);
+            clip-path: ellipse(20% 0% at 50% 100%);
+  }
+  to {
+    -webkit-clip-path: ellipse(70% 55% at 50% 100%);
+            clip-path: ellipse(70% 55% at 50% 100%);
+  }
+}
+.disable-mouse {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */

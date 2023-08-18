@@ -90,7 +90,7 @@ body {
   line-height: 1;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #171717;
+  background-color: #18181b;
   display: grid;
   place-items: center;
   font-weight: 300;
@@ -133,14 +133,13 @@ audio {
 }
 
 .color {
-  border-radius: 16px;
+  border-radius: 15px;
   width: 100%;
   height: 100%;
   position: absolute;
   background-repeat: no-repeat;
-  z-index: 0;
-  display: none;
-  animation: clipPathHover 0.4s ease forwards;
+  -webkit-clip-path: ellipse(20% 0% at 50% 100%);
+          clip-path: ellipse(20% 0% at 50% 100%);
 }
 
 .gradient1 {
@@ -168,6 +167,7 @@ audio {
   height: 70vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -176,6 +176,7 @@ audio {
   height: 294px;
   background-color: transparent;
   perspective: 1000px;
+  will-change: opacity;
 }
 
 .card__inner {
@@ -185,7 +186,7 @@ audio {
   border-radius: 16px;
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
-  background-color: mediumseagreen;
+  background-color: #525252;
 }
 
 .card__wrapper:hover .card__inner {
@@ -194,6 +195,7 @@ audio {
 
 .card__front,
 .card__back {
+  transform: rotateX(0deg); /* Firefox backface workaround */
   position: absolute;
   width: 100%;
   height: 100%; /* Safari */
@@ -347,6 +349,7 @@ audio {
   border-radius: 50%;
   border: 2px solid #334155;
   transition: 0.3s ease;
+  opacity: 0;
   cursor: pointer;
 }
 .colorpick input[type=radio] {
@@ -355,21 +358,50 @@ audio {
 .colorpick input[type=radio]:checked + .custom-radio {
   transform: translateY(-14px) scale(1.4);
   border-color: #e2e8f0;
+  pointer-events: none;
 }
 .colorpick .custom-radio:hover {
   border-color: #94a3b8;
 }
 
-@keyframes clipPathHover {
+.previewOut {
+  animation: gradient-hover-out 0.4s ease forwards;
+}
+@keyframes gradient-hover-out {
   from {
-    -webkit-clip-path: ellipse(20% 0% at 50% 100%);
-            clip-path: ellipse(20% 0% at 50% 100%);
+    -webkit-clip-path: ellipse(60% 48% at 50% 100%);
+            clip-path: ellipse(60% 48% at 50% 100%);
   }
   to {
+    -webkit-clip-path: ellipse(5% 0% at 50% 100%);
+            clip-path: ellipse(5% 0% at 50% 100%);
+  }
+}
+
+.previewOn {
+  animation: gradient-hover-in 0.4s ease forwards;
+}
+@keyframes gradient-hover-in {
+  from {
+    -webkit-clip-path: ellipse(5% 0% at 50% 100%);
+            clip-path: ellipse(5% 0% at 50% 100%);
+  }
+  to {
+    -webkit-clip-path: ellipse(60% 48% at 50% 100%);
+            clip-path: ellipse(60% 48% at 50% 100%);
+  }
+}
+
+.fullPreview {
+  animation: full 0.4s ease forwards;
+}
+@keyframes full {
+  from {
     -webkit-clip-path: ellipse(70% 55% at 50% 100%);
             clip-path: ellipse(70% 55% at 50% 100%);
   }
-}
-.disable-mouse {
-  pointer-events: none;
+  to {
+    -webkit-clip-path: ellipse(100% 120% at 50% 100%);
+            clip-path: ellipse(100% 120% at 50% 100%);
+  }
 }/*# sourceMappingURL=style.css.map */

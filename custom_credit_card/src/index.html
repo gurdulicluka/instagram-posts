@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
-    <script src="app.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 
 <body>
@@ -111,6 +113,25 @@
         </fieldset>
         <!-- COLOR PICKER -->
     </main>
+    <script src="app.js"></script>
 </body>
+<script>
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+
+        let tl = gsap.timeline()
+
+        tl.from(".card__wrapper", {
+            opacity: 0,
+            y: -30,
+            duration: 1,
+            ease: "power1.out"
+        }).to(".custom-radio", {
+            opacity: 1,
+            stagger: 0.06,
+            ease: "sine"
+        }, "-=0.6")
+    });
+</script>
 
 </html>

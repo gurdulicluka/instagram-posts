@@ -92,7 +92,8 @@ body {
   line-height: 1;
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #171717;
+  background-color: #18181b;
+  // background-color: #171717;
   display: grid;
   place-items: center;
   font-weight: 300;
@@ -160,14 +161,12 @@ audio {
 //
 
 @mixin gradientBase {
-  border-radius: 16px;
+  border-radius: 15px;
   width: 100%;
   height: 100%;
   position: absolute;
   background-repeat: no-repeat;
-  z-index: 0;
-  display: none;
-  animation: clipPathHover 0.4s ease forwards;
+  clip-path: ellipse(20% 0% at 50% 100%);
 }
 
 .color {
@@ -195,6 +194,7 @@ audio {
   height: 70vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -203,6 +203,7 @@ audio {
   height: 294px;
   background-color: transparent;
   perspective: 1000px;
+  will-change: opacity;
 }
 
 .card__inner {
@@ -212,7 +213,7 @@ audio {
   border-radius: 16px;
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
-  background-color: mediumseagreen;
+  background-color: #525252;
 }
 
 // Hover
@@ -222,6 +223,7 @@ audio {
 
 .card__front,
 .card__back {
+  transform: rotateX(0deg); /* Firefox backface workaround */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -396,6 +398,7 @@ audio {
     border-radius: 50%;
     border: 2px solid #334155;
     transition: 0.3s ease;
+    opacity: 0;
     cursor: pointer;
   }
 
@@ -406,6 +409,7 @@ audio {
   input[type="radio"]:checked + .custom-radio {
     transform: translateY(-14px) scale(1.4);
     border-color: #e2e8f0;
+    pointer-events: none;
   }
 
   .custom-radio:hover {
@@ -413,17 +417,38 @@ audio {
   }
 }
 
-@keyframes clipPathHover {
-  from {
-    clip-path: ellipse(20% 0% at 50% 100%);
-  }
-  to {
-    clip-path: ellipse(70% 55% at 50% 100%);
+.previewOut {
+  animation: gradient-hover-out 0.4s ease forwards;
+  @keyframes gradient-hover-out {
+    from {
+      clip-path: ellipse(60% 48% at 50% 100%);
+    }
+    to {
+      clip-path: ellipse(5% 0% at 50% 100%);
+    }
   }
 }
 
-// toggle
+.previewOn {
+  animation: gradient-hover-in 0.4s ease forwards;
+  @keyframes gradient-hover-in {
+    from {
+      clip-path: ellipse(5% 0% at 50% 100%);
+    }
+    to {
+      clip-path: ellipse(60% 48% at 50% 100%);
+    }
+  }
+}
 
-.disable-mouse {
-  pointer-events: none;
+.fullPreview {
+  animation: full 0.4s ease forwards;
+  @keyframes full {
+    from {
+      clip-path: ellipse(70% 55% at 50% 100%);
+    }
+    to {
+      clip-path: ellipse(100% 120% at 50% 100%);
+    }
+  }
 }
